@@ -95,6 +95,12 @@ if __name__ == '__main__':
     FileMenu.add_command(label="Exit",command= FileExit)
     MenuBar.add_cascade(label= "File",menu= FileMenu)
     #End  File Menu 
+     #ScrolBar in text area
+
+    ScrollBar =  Scrollbar(TextArea)
+    ScrollBar.pack(side=RIGHT,fill=Y)
+    ScrollBar.config(command=TextArea.yview)
+    TextArea.config(yscrollcommand= ScrollBar.set)
 
     #Edit Menu Starts
     EditMenu = Menu(MenuBar, tearoff=0)
@@ -116,10 +122,5 @@ if __name__ == '__main__':
 
     root.config(menu=MenuBar)
 
-    #ScrolBar in text area
-
-    ScrollBar =  Scrollbar(TextArea)
-    ScrollBar.pack(side=RIGHT,fill=Y)
-    ScrollBar.config(command=TextArea.yview)
-    TextArea.config(yscrollcommand= ScrollBar.set)
+   
 root.mainloop()
